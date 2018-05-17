@@ -7,7 +7,7 @@
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery.js"></script>
 
 
@@ -144,7 +144,11 @@
       event.preventDefault();
 
       // Here we grab the form elements
-      var newSubmission = [
+
+      var userData= {
+        name: $("#name").val(),
+        photo: $("#image").val(),
+        scores: [
           Number($("#question1").val()),
           Number($("#question2").val()),
           Number($("#question3").val()),
@@ -155,41 +159,25 @@
           Number($("#question8").val()),
           Number($("#question9").val()),
           Number($("#question10").val())
-        ];
-         console.log("this is the newSubmission", newSubmission);
-
-      var userData= {
-        name: $("#name").val(),
-        photo: $("#image").val(),
-        scores: newSubmission
-      }
+      ]};
       console.log("this is userData", userData);
 
-      $.post("/api/friends", userData, function(data) {
-        console.log(data);
+  
+    // function clearObject {
+    //   $("#name").val(""),
+    //   $("#image").val(""),
+    //   set new submission back to 0
+    // }
+
+    var currentURL = window.location.origin;
+      $.ajax({ url: currentURL + "/api/friends", method: "GET" }).then(function(data) {          
+          console.log("URL: " + currentURL + "/api/friends");
+          console.log("this is the data", data);
 
 
-        //How to reset values back to 0.
-       // $("#name").val(""),
-       // $("#image").val(""),
-        // how do we set newSubmission back to 0.
-
-
-      })
-
-    })
-
-    function clear
-
-
-
-
-
-      
+    });
+  });
 
 </script>
-
-
-
 </body>
 </html>
