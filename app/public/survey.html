@@ -169,14 +169,21 @@
     //   set new submission back to 0
     // }
 
-    var currentURL = window.location.origin;
-      $.ajax({ url: currentURL + "/api/friends", method: "GET" }).then(function(data) {          
-          console.log("URL: " + currentURL + "/api/friends");
-          console.log("this is the data", data);
+    // var currentURL = window.location.origin;
+    //   $.ajax({ url: currentURL + "/api/friends", method: "GET" }).then(function(data) {          
+    //       console.log("URL: " + currentURL + "/api/friends");
+    //       console.log("this is the data", data);
+    // });
 
 
+      // Question: What does this code do??
+      $.post("/api/friends", userData)
+        .then(function(data) {
+          console.log("add.html", data);
+      
+        });
     });
-  });
+
 
 </script>
 </body>
