@@ -6,6 +6,8 @@ module.exports = function(app) {
   });
 
   app.post("/api/friends", function(req, res) {
+    console.log('tiss is req', req)
+    console.log('hey i am here');
     console.log("this is req.body", req.body);
     friendsData.push(req.body);
     res.json(true);
