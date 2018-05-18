@@ -1,6 +1,6 @@
 var friendsArray = [
     {
-    name:"example",
+    name:"",
     photo:"",
     scores:[]
     }
